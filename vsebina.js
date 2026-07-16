@@ -46,7 +46,7 @@ window.VSEBINA = {
   "musicDescription": "Avtorske skladbe, ki živijo med popom, rockom in countryjem — vedno s poudarkom na zgodbi.",
   "skladba1": "Eufemija",
   "skladba1Opis": "Avtorska skladba · v živo",
-  "skladba1Link": "C:\\Users\\BUKOVECS.ILIRIJALK\\Documents\\Codex\\2026-07-16\\ra\\outputs\\astisenamorju-osnutek\\Materiali\\04_Glasba\\EufemijaSilvo.mp3",
+  "skladba1Link": "https://1drv.ms/u/c/89017a45320dda76/IQAqvCutMyOiQboQ-tLZ2b0lAcKBhNndGSb9zPlqz3VIYy0?e=BZCOeH",
   "skladba2": "Magija",
   "skladba2Opis": "Avtorska skladba · v živo",
   "skladba2Link": "",
