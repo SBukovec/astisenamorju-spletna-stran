@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta id="meta-description" name="description" content="ASTIŠENAMORJU — avtorski akustični pop in rock z dotikom countryja in dobrimi besedili.">
+  <title>ASTIŠENAMORJU — avtorski akustični pop/rock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Na vrh">
+      <img id="site-logo" alt="" hidden>
+      <span id="site-wordmark">ASTIŠENAMORJU<span class="brand-dot">.</span></span>
+    </a>
+    <button class="menu-button" aria-expanded="false" aria-controls="main-nav">Meni</button>
+    <nav id="main-nav" aria-label="Glavna navigacija"></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <video id="hero-video" autoplay muted loop playsinline poster="assets/skupina-rdeca.jpg">
+          <source id="hero-video-source" src="assets/naslovni-video-web.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-shade"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow" id="hero-eyebrow"></p>
+        <h1><span id="hero-title"></span><br><em id="hero-highlight"></em></h1>
+        <p class="lead" id="hero-lead"></p>
+        <div class="hero-actions">
+          <a class="button button-primary" id="hero-button-one"></a>
+          <a class="button button-ghost" id="hero-button-two"></a>
+        </div>
+      </div>
+      <p class="scroll-note" id="scroll-note"></p>
+    </section>
+
+    <section class="intro section" id="zgodba">
+      <p class="section-index" id="story-index"></p>
+      <div class="intro-grid">
+        <div><h2 id="story-title"></h2><div class="story-image-frame"><img class="story-image" id="story-image" alt=""></div></div>
+        <div class="body-copy"><p id="story-one"></p><p id="story-two"></p></div>
+      </div>
+      <div class="lineup" id="lineup" aria-label="Zasedba"></div>
+    </section>
+
+    <section class="music section" id="glasba">
+      <div class="section-heading">
+        <div><p class="section-index" id="music-index"></p><h2 id="music-title"></h2></div>
+        <p id="music-description"></p>
+      </div>
+      <div class="song-list" id="song-list"></div>
+      <p class="draft-note" id="music-note"></p>
+    </section>
+
+    <section class="live section" id="v-zivo">
+      <div class="live-card reveal">
+        <div class="live-copy">
+          <p class="section-index" id="live-index"></p><h2 id="live-title"></h2>
+          <p id="live-description"></p><a class="text-link" id="live-link"></a>
+        </div>
+        <figure><img id="live-image" alt=""><figcaption id="live-caption"></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="gallery section" id="galerija">
+      <div class="section-heading">
+        <div><p class="section-index" id="gallery-index"></p><h2 id="gallery-title"></h2></div>
+        <p id="gallery-description"></p>
+      </div>
+      <div class="gallery-grid" id="gallery-grid"></div>
+      <nav class="gallery-pages" id="gallery-pages" aria-label="Strani galerije"></nav>
+    </section>
+
+    <section class="contact section" id="kontakt">
+      <p class="section-index" id="contact-index"></p>
+      <h2><span id="contact-title"></span><br><em id="contact-highlight"></em></h2>
+      <p id="contact-description"></p>
+      <a class="button button-primary" id="contact-email"></a>
+      <div class="socials" id="socials"></div>
+    </section>
+  </main>
+
+  <footer><span id="footer-left"></span><span id="footer-right"></span></footer>
+  <script src="vsebina.js"></script><script src="script.js"></script>
+</body>
+</html>
