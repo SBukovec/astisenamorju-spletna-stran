@@ -107,6 +107,13 @@ window.VSEBINA = {
       "slika": "assets/gallery-20260716-105630218.jpeg",
       "opis": "Koncert na fužinskem gradu",
       "pozicija": "center center",
+      "velikost": "50",
+      "nacin": "contain"
+    },
+    {
+      "slika": "assets/gallery-20260716-121526726.jpg",
+      "opis": "",
+      "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
     }
