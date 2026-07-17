@@ -8,7 +8,7 @@ window.VSEBINA = {
   "barvaPoudarka": "#d56f3e",
   "menu1": "Zgodba",
   "menu1Link": "#zgodba",
-  "menu2": "Audio",
+  "menu2": "Glasba",
   "menu2Link": "#glasba",
   "menu3": "V živo",
   "menu3Link": "#v-zivo",
@@ -130,5 +130,13 @@ window.VSEBINA = {
   "youtubeText": "YouTube",
   "youtubeUrl": "",
   "footerLeft": "© 2026 ASTIŠENAMORJU",
-  "footerRight": "Avtorska glasba · Slovenija"
+  "footerRight": "Avtorska glasba · Slovenija",
+  "menu6": "",
+  "menu6Link": "",
+  "menu7": "",
+  "menu7Link": "",
+  "menu8": "",
+  "menu8Link": "",
+  "menu9": "",
+  "menu9Link": ""
 };
