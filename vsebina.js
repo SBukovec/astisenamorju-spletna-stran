@@ -16,7 +16,7 @@ window.VSEBINA = {
   "menu4Link": "#galerija",
   "menu5": "Kontakt",
   "menu5Link": "#kontakt",
-  "eyebrow": "Avtorski akustični pop / rock",
+  "eyebrow": "Avtorski akustični pop / rock in še kaj drugega",
   "naslov": "Še vedno",
   "poudarek": "na morju?",
   "uvodniOpis": "Dve akustični kitari, bas, bobni in dva glasova. Pesmi, ki najprej nekaj povedo — potem pa ostanejo v ušesu.",
