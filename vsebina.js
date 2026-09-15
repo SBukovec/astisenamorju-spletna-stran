@@ -116,6 +116,20 @@ window.VSEBINA = {
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
+    },
+    {
+      "slika": "assets/gallery-20260915-134650556.jpg",
+      "opis": "",
+      "pozicija": "center center",
+      "velikost": "100",
+      "nacin": "cover"
+    },
+    {
+      "slika": "assets/gallery-20260915-134656059.jpg",
+      "opis": "",
+      "pozicija": "center center",
+      "velikost": "100",
+      "nacin": "cover"
     }
   ],
   "contactIndex": "05 / Kontakt",
