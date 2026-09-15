@@ -7,7 +7,7 @@ Za lastnika (ti) in za kolega oblikovalca.
 ## KORAK 1 — LASTNIK: Pošlji kolegu dostop
 
 ### 1.1 Dodeli dostop na GitHubu
-1. Odpri repozitorij na GitHubu: `https://github.com/<tvoj-uporabnik>/astisenamorju-spletna-stran`
+1. Odpri repozitorij na GitHubu: `https://github.com/SBukovec/astisenamorju-spletna-stran`
 2. Klikni zavihek **Settings** (zgoraj desno)
 3. V levem meniju klikni **Collaborators**
 4. Klikni zeleni gumb **Add people**
@@ -18,7 +18,7 @@ Za lastnika (ti) in za kolega oblikovalca.
 
 ### 1.2 Pošlji kolegu to datoteko in sporočilo
 Pošlji mu to datoteko (NAVODILA-ZA-UREDJANJE.md) in naslednje podatke:
-- **URL repozitorija:** `https://github.com/<tvoj-uporabnik>/astisenamorju-spletna-stran`
+- **URL repozitorija:** `https://github.com/SBukovec/astisenamorju-spletna-stran`
 - Povej mu, da mora slediti **Koraku 2** (spodaj)
 
 ### 1.3 Po tem, ko koleg potisne spremembe
@@ -46,7 +46,7 @@ Vse, kar potrebujete, so **4 preprosti koraki** (spodaj).
 2. V zgornjem levem kotu klikni **File** → **Clone Repository…**
 3. Klikni zavihek **URL** (desno zgoraj)
 4. V polje **Repository URL** prilepi ta naslov:
-   `https://github.com/<tvoj-uporabnik>/astisenamorju-spletna-stran`
+   `https://github.com/SBukovec/astisenamorju-spletna-stran`
 5. Klikni **Clone**
 6. Izberi mapo — pusti privzeto (običajno `Documents\GitHub\astisenamorju-spletna-stran`)
 7. Klikni **Clone** in počakaj
@@ -96,5 +96,5 @@ Vse, kar potrebujete, so **4 preprosti koraki** (spodaj).
 
 1. **Registriraj GitHub račun za kolega** (če ga nima) ali izvedi njegovo uporabniško ime.
 2. **Dodeli dostop:** Settings → Collaborators → Add people → vpiši njegovo uporabniško ime / e-pošto.
-3. **Pošlji mu to datoteko** (NAVODILA-ZA-UREDJANJE.md) skupaj z naslovom repozitorija: `https://github.com/<tvoj-uporabnik>/astisenamorju-spletna-stran`
+3. **Pošlji mu to datoteko** (NAVODILA-ZA-UREDJANJE.md) skupaj z naslovom repozitorija: `https://github.com/SBukovec/astisenamorju-spletna-stran`
 4. Ko koleg zaključi z urejanjem in stisne **Push**, se nova vsebina objavi samodejno.
