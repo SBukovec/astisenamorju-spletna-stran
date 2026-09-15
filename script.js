@@ -53,16 +53,21 @@ function showGalleryPage(page){
   });
 }
 function layoutGallery(){
-  const width=grid.clientWidth||window.innerWidth; const targetHeight=280; let rows=1,rowWidth=0,nextPerPage=0;
-  for(const item of galleryItems){
-    const ratio=Math.max(.55,Math.min(2.2,Number(item.razmerje)||1.35)); const cardWidth=Math.max(170,Math.min(610,ratio*targetHeight));
-    if(rowWidth>0&&rowWidth+12+cardWidth>width){rows+=1;rowWidth=0;} if(rows>2)break;
-    rowWidth+=(rowWidth?12:0)+cardWidth;nextPerPage+=1;
+  const width=grid.clientWidth||window.innerWidth; const targetHeight=280; const mobile=width<760;
+  if(mobile){perPage=galleryItems.length||1;currentGalleryPage=0;}
+  else{
+    let rows=1,rowWidth=0,nextPerPage=0;
+    for(const item of galleryItems){
+      const ratio=Math.max(.55,Math.min(2.2,Number(item.razmerje)||1.35)); const cardWidth=Math.max(170,Math.min(610,ratio*targetHeight));
+      if(rowWidth>0&&rowWidth+12+cardWidth>width){rows+=1;rowWidth=0;} if(rows>2)break;
+      rowWidth+=(rowWidth?12:0)+cardWidth;nextPerPage+=1;
+    }
+    nextPerPage=Math.max(1,nextPerPage);
+    if(nextPerPage!==perPage){perPage=nextPerPage;currentGalleryPage=0;}
   }
-  nextPerPage=Math.max(1,nextPerPage);
-  if(nextPerPage!==perPage){perPage=nextPerPage;currentGalleryPage=0;}
+  const pageCount=Math.max(1,Math.ceil(galleryItems.length/perPage));
   galleryPages.innerHTML='';
-  for(let p=0;p<Math.ceil(galleryItems.length/perPage);p++){const b=document.createElement('button');b.type='button';b.textContent=String(p+1);b.setAttribute('aria-label',`Galerija, stran ${p+1}`);b.addEventListener('click',()=>showGalleryPage(p));galleryPages.appendChild(b);}
+  if(pageCount>1) for(let p=0;p<pageCount;p++){const b=document.createElement('button');b.type='button';b.textContent=String(p+1);b.setAttribute('aria-label',`Galerija, stran ${p+1}`);b.addEventListener('click',()=>showGalleryPage(p));galleryPages.appendChild(b);}
   showGalleryPage(currentGalleryPage);
 }
 let galleryResizeTimer; window.addEventListener('resize',()=>{clearTimeout(galleryResizeTimer);galleryResizeTimer=setTimeout(layoutGallery,120);});
