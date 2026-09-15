@@ -132,13 +132,6 @@ window.VSEBINA = {
       "nacin": "cover"
     },
     {
-      "slika": "assets/gallery-20260915-193123662.jpg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "100",
-      "nacin": "cover"
-    },
-    {
       "slika": "assets/gallery-20260915-193130875.jpg",
       "opis": "",
       "pozicija": "center center",
