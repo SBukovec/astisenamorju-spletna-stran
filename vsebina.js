@@ -19,7 +19,7 @@ window.VSEBINA = {
   "eyebrow": "Avtorski akustični pop / rock in še kaj drugega",
   "naslov": "Še vedno",
   "poudarek": "na morju?",
-  "uvodniOpis": "Dve akustični kitari, bas, bobni in dva glasova. Pesmi, ki najprej nekaj povedo — potem pa ostanejo v ušesu.",
+  "uvodniOpis": "Pesmi, ki najprej nekaj povedo — potem pa ostanejo v ušesu.",
   "video": "assets/naslovni-video-web.mp4",
   "videoPoster": "assets/skupina-rdeca.jpg",
   "videoPozicija": "center center",
@@ -140,6 +140,13 @@ window.VSEBINA = {
     },
     {
       "slika": "assets/gallery-20260915-193140584.jpg",
+      "opis": "",
+      "pozicija": "center center",
+      "velikost": "100",
+      "nacin": "cover"
+    },
+    {
+      "slika": "assets/gallery-20260916-134548876.jpg",
       "opis": "",
       "pozicija": "center center",
       "velikost": "100",
