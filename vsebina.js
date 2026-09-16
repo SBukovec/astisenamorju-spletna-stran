@@ -1,6 +1,6 @@
 window.VSEBINA = {
   "imeBenda": "ASTIŠENAMORJU",
-  "logotip": "",
+  "logotip": "assets/logotip.png",
   "naslovStrani": "ASTIŠENAMORJU — avtorski akustični pop/rock",
   "metaOpis": "ASTIŠENAMORJU — avtorski akustični pop in rock z dotikom countryja in dobrimi besedili.",
   "barvaOzadja": "#400000",
