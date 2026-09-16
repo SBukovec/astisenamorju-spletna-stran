@@ -16,7 +16,6 @@ document.documentElement.style.setProperty('--night', v.barvaOzadja || '#171713'
 document.documentElement.style.setProperty('--paper', v.barvaPapirja || '#f0eadf');
 document.documentElement.style.setProperty('--copper', v.barvaPoudarka || '#d56f3e');
 text('site-wordmark', v.imeBenda); image('site-logo', v.logotip, v.imeBenda);
-document.getElementById('site-wordmark').hidden = Boolean(v.logotip);
 
 const nav = document.getElementById('main-nav');
 for (let i = 1; i <= 5; i++) if (v[`menu${i}`]) {
