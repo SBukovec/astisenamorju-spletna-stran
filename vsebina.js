@@ -77,14 +77,14 @@ window.VSEBINA = {
   "galerija": [
     {
       "slika": "assets/nastop-intimno.jpg",
-      "opis": "Intimni koncert skupine ASTIŠENAMORJU",
+      "opis": "Koncert skupine ASTIŠENAMORJU",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
     },
     {
       "slika": "assets/oder-transparent.jpg",
-      "opis": "Oder s transparentom ASTIŠENAMORJU",
+      "opis": "Oder",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
@@ -112,14 +112,14 @@ window.VSEBINA = {
     },
     {
       "slika": "assets/gallery-20260915-193140584.jpg",
-      "opis": "",
+      "opis": "Fotografiranje v studiu",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
     },
     {
       "slika": "assets/gallery-20260916-134548876.jpg",
-      "opis": "",
+      "opis": "assets/gallery-20260915-193140584.jpg\tFotografiranje v studiu \tcenter center\t100\tcover — zapolnjen okvir",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
