@@ -111,34 +111,6 @@ window.VSEBINA = {
       "nacin": "contain"
     },
     {
-      "slika": "assets/gallery-20260716-121526726.jpg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "100",
-      "nacin": "cover"
-    },
-    {
-      "slika": "assets/gallery-20260915-134650556.jpg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "100",
-      "nacin": "cover"
-    },
-    {
-      "slika": "assets/gallery-20260915-134656059.jpg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "100",
-      "nacin": "cover"
-    },
-    {
-      "slika": "assets/gallery-20260915-193130875.jpg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "100",
-      "nacin": "cover"
-    },
-    {
       "slika": "assets/gallery-20260915-193140584.jpg",
       "opis": "",
       "pozicija": "center center",
