@@ -91,14 +91,14 @@ window.VSEBINA = {
     },
     {
       "slika": "assets/gallery3.jpg",
-      "opis": "Člana skupine v zakulisju",
+      "opis": "Člana skupine v zakulisju, Šani in Silvo",
       "pozicija": "50% 20%",
       "velikost": "100",
       "nacin": "contain"
     },
     {
       "slika": "assets/gallery-20260716-103121146.jpg",
-      "opis": "Razpoloženje na vajah",
+      "opis": "Razpoloženje na vajah, Tomo in Šani",
       "pozicija": "center top",
       "velikost": "100",
       "nacin": "contain"
@@ -119,7 +119,7 @@ window.VSEBINA = {
     },
     {
       "slika": "assets/gallery-20260916-134548876.jpg",
-      "opis": "assets/gallery-20260915-193140584.jpg\tFotografiranje v studiu \tcenter center\t100\tcover — zapolnjen okvir",
+      "opis": "Fotografiranje v studiu",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
