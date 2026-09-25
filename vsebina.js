@@ -111,7 +111,7 @@ window.VSEBINA = {
       "nacin": "contain"
     },
     {
-      "slika": "assets/gallery-20260915-193140584.jpg",
+      "slika": "assets/gallery-20260925-155753529.jpg",
       "opis": "Fotografiranje v studiu",
       "pozicija": "center center",
       "velikost": "100",
