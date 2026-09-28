@@ -1,5 +1,5 @@
 window.VSEBINA = {
-  "imeBenda": "ASTIŠENAMORJU",
+  "imeBenda": "",
   "headerMode": "grafika",
   "imeGrafika": "assets/imegrafika.png",
   "imeGrafikaVelikost": "50",
@@ -12,7 +12,7 @@ window.VSEBINA = {
   "barvaPapirja": "#f0eadf",
   "barvaPoudarka": "#d56f3e",
   "glavaBarvaOzadja": "prosojno",
-  "glavaBarvaBesedila": "izvorno",
+  "glavaBarvaBesedila": "#FFE9D2",
   "menu1": "Zgodba",
   "menu1Link": "#zgodba",
   "menu2": "Glasba",
@@ -118,7 +118,7 @@ window.VSEBINA = {
       "nacin": "contain"
     },
     {
-      "slika": "assets/gallery-20260925-155753529.jpg",
+      "slika": "assets/gallery-20260928-114719324.jpg",
       "opis": "Fotografiranje v studiu",
       "pozicija": "center center",
       "velikost": "100",
