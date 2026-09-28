@@ -15,10 +15,31 @@ document.getElementById('meta-description').content = v.metaOpis || '';
 document.documentElement.style.setProperty('--night', v.barvaOzadja || '#171713');
 document.documentElement.style.setProperty('--paper', v.barvaPapirja || '#f0eadf');
 document.documentElement.style.setProperty('--copper', v.barvaPoudarka || '#d56f3e');
-text('site-wordmark', v.imeBenda); image('site-logo', v.logotip, v.imeBenda); document.getElementById('site-wordmark').hidden = Boolean(v.logotip);
+const headerBg = (v.glavaBarvaOzadja || '').trim().toLowerCase();
+const headerFg = (v.glavaBarvaBesedila || '').trim().toLowerCase();
+if (headerBg === '' || headerBg === 'prosojno' || headerBg === 'prazno' || headerBg === 'brez') {
+  document.documentElement.style.setProperty('--header-bg', 'transparent');
+  document.documentElement.style.setProperty('--header-bg-mobile', 'rgba(17,16,14,.91)');
+} else {
+  document.documentElement.style.setProperty('--header-bg', headerBg);
+  document.documentElement.style.setProperty('--header-bg-mobile', headerBg);
+}
+if (headerFg === '' || headerFg === 'izvorno' || headerFg === 'prazno') document.documentElement.style.removeProperty('--header-fg');
+else document.documentElement.style.setProperty('--header-fg', headerFg);
+text('site-wordmark', v.imeBenda); image('site-logo', v.logotip, v.imeBenda); image('site-wordmark-img', v.imeGrafika, v.imeBenda);
+const showGrafika = (v.headerMode || '').trim().toLowerCase() === 'grafika' && !!v.imeGrafika;
+const wordmarkEl = document.getElementById('site-wordmark-img');
+const wordmarkScale = Math.max(30, Math.min(250, Number(v.imeGrafikaVelikost) || 100)) / 100;
+wordmarkEl.hidden = !showGrafika;
+wordmarkEl.style.height = `${Math.round(70 * wordmarkScale)}px`;
+wordmarkEl.style.width = 'auto';
+wordmarkEl.style.maxWidth = `${Math.round(440 * wordmarkScale)}px`;
+wordmarkEl.style.marginLeft = `${Number(v.imeGrafikaOdmikX) || 0}px`;
+wordmarkEl.style.marginTop = `${Number(v.imeGrafikaOdmikY) || 0}px`;
+document.getElementById('site-wordmark').hidden = showGrafika;
 
 const nav = document.getElementById('main-nav');
-for (let i = 1; i <= 5; i++) if (v[`menu${i}`]) {
+for (let i = 1; i <= 9; i++) if (v[`menu${i}`]) {
   const a = document.createElement('a'); a.textContent = v[`menu${i}`]; a.href = v[`menu${i}Link`] || '#'; nav.appendChild(a);
 }
 
@@ -72,6 +93,36 @@ function layoutGallery(){
 let galleryResizeTimer; window.addEventListener('resize',()=>{clearTimeout(galleryResizeTimer);galleryResizeTimer=setTimeout(layoutGallery,120);});
 layoutGallery();
 Promise.all(galleryItems.map(item=>new Promise(resolve=>{const probe=new Image();probe.onload=()=>{item.razmerje=probe.naturalWidth/probe.naturalHeight;resolve();};probe.onerror=resolve;probe.src=item.slika;}))).then(layoutGallery);
+
+text('video-index',v.videoIndex); text('video-title',v.videoTitle); text('video-description',v.videoDescription);
+const videoGrid=document.getElementById('video-grid');
+(Array.isArray(v.videoteka)?v.videoteka:[]).forEach(item=>{
+  if(String(item.aktiven||'').trim().toLowerCase()==='ne') return;
+  const src=(item.video||'').trim(); if(!src) return;
+  const fig=document.createElement('figure'); fig.className='video-card';
+  const isUrl=/^https?:\/\//i.test(src);
+  if(!isUrl){
+    const vid=document.createElement('video'); vid.controls=true; vid.preload='metadata'; vid.playsInline=true;
+    const s=document.createElement('source'); s.src=src; s.type=src.toLowerCase().endsWith('.webm')?'video/webm':'video/mp4';
+    vid.appendChild(s); fig.appendChild(vid);
+  } else if(src.includes('youtube.com')||src.includes('youtu.be')){
+    const m=src.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
+    const ifr=document.createElement('iframe'); ifr.src=m?`https://www.youtube.com/embed/${m[1]}`:src; ifr.setAttribute('allowfullscreen',''); ifr.loading='lazy'; ifr.title='Video';
+    fig.appendChild(ifr);
+  } else if(src.includes('drive.google.com')){
+    const m=src.match(/\/file\/d\/([^/?#]+)/);
+    const ifr=document.createElement('iframe'); ifr.src=m?`https://drive.google.com/file/d/${m[1]}/preview`:src; ifr.setAttribute('allowfullscreen',''); ifr.loading='lazy'; ifr.title='Video';
+    fig.appendChild(ifr);
+  } else if(/\.(mp4|webm|ogg|mov)(\?|$)/i.test(src)){
+    const vid=document.createElement('video'); vid.controls=true; vid.preload='metadata'; vid.playsInline=true;
+    const s=document.createElement('source'); s.src=src; s.type=src.toLowerCase().endsWith('.webm')?'video/webm':'video/mp4';
+    vid.appendChild(s); fig.appendChild(vid);
+  } else {
+    const a=document.createElement('a'); a.className='video-external'; a.href=src; a.target='_blank'; a.rel='noopener'; a.textContent='Oglej si video ↗'; fig.appendChild(a);
+  }
+  if(item.naslov){const cap=document.createElement('figcaption'); cap.textContent=item.naslov; fig.appendChild(cap);}
+  videoGrid.appendChild(fig);
+});
 
 text('contact-index',v.contactIndex); text('contact-title',v.contactTitle); text('contact-highlight',v.contactHighlight); text('contact-description',v.contactDescription); link('contact-email',v.kontakt,`mailto:${v.kontakt}`);
 const socials=document.getElementById('socials'); ['facebook','instagram','youtube'].forEach(k=>{if(v[`${k}Text`]){const a=document.createElement('a');a.textContent=v[`${k}Text`];a.href=v[`${k}Url`]||'#kontakt';if(!v[`${k}Url`])a.classList.add('disabled');socials.appendChild(a);}});
