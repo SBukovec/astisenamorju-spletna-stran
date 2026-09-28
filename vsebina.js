@@ -147,7 +147,7 @@ window.VSEBINA = {
   "footerRight": "Avtorska glasba · Slovenija",
   "videoIndex": "05 / Video",
   "videoTitle": "Posnetki in pogledi v ozadje.",
-  "videoDescription": "Izbrani posnetki, vaje in trenutki iz zakulisja — ko glasba ujame še sliko.",
+  "videoDescription": "Izbrani posnetki — ko glasba ujame še sliko.",
   "videoteka": [
     {
       "video": "https://1drv.ms/f/c/89017a45320dda76/IgAutDrKEoARTJfjsai2xaN5AZszvkgqVnyfEwXvtCnrYDY?e=ClfdIb",
