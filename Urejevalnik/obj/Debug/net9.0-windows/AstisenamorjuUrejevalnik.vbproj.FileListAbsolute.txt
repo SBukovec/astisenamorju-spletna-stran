@@ -1,0 +1,15 @@
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\bin\Debug\net9.0-windows\AstisenamorjuUrejevalnik.exe
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\bin\Debug\net9.0-windows\AstisenamorjuUrejevalnik.deps.json
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\bin\Debug\net9.0-windows\AstisenamorjuUrejevalnik.runtimeconfig.json
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\bin\Debug\net9.0-windows\AstisenamorjuUrejevalnik.dll
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\bin\Debug\net9.0-windows\AstisenamorjuUrejevalnik.pdb
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\AstisenamorjuUrejevalnik.GeneratedMSBuildEditorConfig.editorconfig
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\AstisenamorjuUrejevalnik.AssemblyInfoInputs.cache
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\AstisenamorjuUrejevalnik.AssemblyInfo.vb
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\AstisenamorjuUrejevalnik.vbproj.CoreCompileInputs.cache
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\AstisenamorjuUrejevalnik.sourcelink.json
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\AstisenamorjuUrejevalnik.dll
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\refint\AstisenamorjuUrejevalnik.dll
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\AstisenamorjuUrejevalnik.pdb
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\AstisenamorjuUrejevalnik.genruntimeconfig.cache
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran\Urejevalnik\obj\Debug\net9.0-windows\ref\AstisenamorjuUrejevalnik.dll
