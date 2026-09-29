@@ -150,7 +150,7 @@ window.VSEBINA = {
   "videoDescription": "Izbrani posnetki — ko glasba ujame še sliko.",
   "videoteka": [
     {
-      "video": "https://1drv.ms/f/c/89017a45320dda76/IgAutDrKEoARTJfjsai2xaN5AZszvkgqVnyfEwXvtCnrYDY?e=ClfdIb",
+      "video": "https://youtu.be/z81aeNS1wKs",
       "naslov": "Posnetki koncerta v Okrepčevalnici Kolišče",
       "aktiven": "da"
     }
