@@ -53,6 +53,11 @@ Public Class MainForm
         Size = New Size(1060, 860)
         BackColor = Color.FromArgb(240, 234, 223)
         Font = New Font("Segoe UI", 9.5F)
+        Try
+            Dim iconPath = Path.Combine(AppContext.BaseDirectory, "AstisenamorjuUrejevalnik.ico")
+            If File.Exists(iconPath) Then Icon = New Icon(iconPath)
+        Catch
+        End Try
 
         Dim root As New TableLayoutPanel With {.Dock = DockStyle.Fill, .RowCount = 3, .ColumnCount = 1, .Padding = New Padding(18)}
         root.RowStyles.Add(New RowStyle(SizeType.Percent, 100))

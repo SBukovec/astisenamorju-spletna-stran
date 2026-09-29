@@ -7,9 +7,12 @@
     <StartupObject>AstisenamorjuUrejevalnik.Program</StartupObject>
     <OptionStrict>On</OptionStrict>
     <OptionExplicit>On</OptionExplicit>
-    <ApplicationIcon />
+    <ApplicationIcon>AstisenamorjuUrejevalnik.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="AstisenamorjuUrejevalnik.ico" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
   <Target Name="CopyWithSourceToPublish" AfterTargets="Publish">
-    <Copy SourceFiles="AstisenamorjuUrejevalnik.vbproj;MainForm.vb;Program.vb;SiteContent.vb;NuGet.Config;README.txt" DestinationFolder="$(PublishDir)" />
+    <Copy SourceFiles="AstisenamorjuUrejevalnik.vbproj;MainForm.vb;Program.vb;SiteContent.vb;NuGet.Config;README.txt;AstisenamorjuUrejevalnik.ico" DestinationFolder="$(PublishDir)" />
   </Target>
 </Project>
