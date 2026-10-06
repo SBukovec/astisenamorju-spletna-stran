@@ -53,7 +53,7 @@ const lineup = document.getElementById('lineup'); [v.zasedba1,v.zasedba2,v.zased
 
 text('music-index',v.musicIndex); text('music-title',v.musicTitle); text('music-description',v.musicDescription); text('music-note',v.musicNote);
 const songs = document.getElementById('song-list');
-const songItems=Array.isArray(v.pesmi)&&v.pesmi.length?v.pesmi:[1,2].filter(i=>v[`skladba${i}`]).map(i=>({naslov:v[`skladba${i}`]||'',opis:v[`skladba${i}Opis`]||'',link:v[`skladba${i}Link`]||''}));
+const songItems=Array.isArray(v.pesmi)?v.pesmi:[1,2].filter(i=>v[`skladba${i}`]).map(i=>({naslov:v[`skladba${i}`]||'',opis:v[`skladba${i}Opis`]||'',link:v[`skladba${i}Link`]||''}));
 songItems.forEach((song,i)=>{ const article=document.createElement('article'); article.className='song'; const url=song.link; article.innerHTML=`<span class="song-no">${String(i+1).padStart(2,'0')}</span><div><h3></h3><p></p></div><a class="play" aria-label="Odpri skladbo">▶</a>`; article.querySelector('h3').textContent=song.naslov||''; article.querySelector('p').textContent=song.opis||''; const a=article.querySelector('a'); a.href=url||'#glasba'; if(!url) a.classList.add('disabled'); songs.appendChild(article); });
 
 text('live-index',v.liveIndex); text('live-title',v.liveTitle); text('live-description',v.liveDescription); link('live-link',v.liveLinkText,v.liveLinkUrl); image('live-image',v.liveSlika,v.liveSlikaAlt); imageDisplay(document.getElementById('live-image'),v.liveSlikaPozicija,v.liveSlikaVelikost,v.liveSlikaNacin); text('live-caption',v.liveCaption);

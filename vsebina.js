@@ -37,33 +37,21 @@ window.VSEBINA = {
   "scrollTekst": "Pomakni se navzdol ↓",
   "storyIndex": "01 / Kdo smo",
   "storyTitle": "Ime je vprašanje. Glasba je odgovor.",
-  "zgodba1": "Člani benda smo: Šani Kolbezen, avtor vseh skladb, glavni trubadur in kitarist, Silvester Bukovec, vokal kitara, mandolina, Tomaž Polak, vokal in bas, ter Matej Palka, bobni in zabava.",
+  "zgodba1": "Člani benda smo: Šani Kolbezen, vokal, kitara, Silvester Bukovec, vokal, kitara, Tomaž Polak, vokal, bas ter Matej Palka, vokal, bobni.",
   "zgodba2": "Igramo izključno avtorske skladbe — akustični pop in rock z nekaj country prahu na čevljih. V ospredju so zgodbe, besede in ljudje, ki radi igrajo skupaj.",
   "storySlika": "assets/skupina-rdeca.jpg",
   "storySlikaAlt": "Člani skupine ASTIŠENAMORJU po nastopu",
   "storySlikaPozicija": "center center",
   "storySlikaVelikost": "100",
   "storySlikaNacin": "cover",
-  "zasedba1": "2× akustična kitara",
+  "zasedba1": "akustična kitara",
   "zasedba2": "bas",
   "zasedba3": "bobni",
-  "zasedba4": "2× vokal",
+  "zasedba4": "vokal",
   "musicIndex": "02 / Glasba",
   "musicTitle": "Pesmi z besedami.",
   "musicDescription": "Avtorske skladbe, ki živijo med popom, rockom in countryjem — vedno s poudarkom na zgodbi.",
-  "skladba1": "Svatba",
-  "skladba1Opis": "Avtorska skladba",
-  "skladba1Link": "https://1drv.ms/u/c/89017a45320dda76/IQCTgEQuYhF2R7GQtSdbnw77AXilqLpPv8NfCqdRWSiygDs?e=KEPBzv",
-  "skladba2": "Magija",
-  "skladba2Opis": "Avtorska skladba · v živo",
-  "skladba2Link": "",
-  "pesmi": [
-    {
-      "naslov": "Svatba",
-      "opis": "Avtorska skladba",
-      "link": "https://1drv.ms/u/c/89017a45320dda76/IQCTgEQuYhF2R7GQtSdbnw77AXilqLpPv8NfCqdRWSiygDs?e=KEPBzv"
-    }
-  ],
+  "pesmi": [],
   "musicNote": "Posnetke in povezave dodamo, ko izberemo uradne različice.",
   "liveIndex": "03 / V živo",
   "liveTitle": "Najbolje zvenimo v istem prostoru.",
@@ -71,11 +59,11 @@ window.VSEBINA = {
   "liveLinkText": "Dogovori se za nastop →",
   "liveLinkUrl": "#kontakt",
   "liveSlika": "assets/nastop-muzej.jpg",
-  "liveSlikaAlt": "ASTIŠENAMORJU med koncertom",
+  "liveSlikaAlt": "",
   "liveSlikaPozicija": "center center",
   "liveSlikaVelikost": "100",
   "liveSlikaNacin": "cover",
-  "liveCaption": "Utrinek z nastopa · koncertni arhiv",
+  "liveCaption": "",
   "galleryIndex": "04 / Galerija",
   "galleryTitle": "Med odrom in zakulisjem.",
   "galleryDescription": "Nekaj utrinkov z vaj, koncertov in trenutkov med pesmimi.",
@@ -91,49 +79,42 @@ window.VSEBINA = {
   "galerija": [
     {
       "slika": "assets/nastop-intimno.jpg",
-      "opis": "Koncert skupine ASTIŠENAMORJU",
+      "opis": "",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
     },
     {
       "slika": "assets/oder-transparent.jpg",
-      "opis": "Oder",
+      "opis": "",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
     },
     {
-      "slika": "assets/gallery3.jpg",
-      "opis": "Člana skupine v zakulisju, Šani in Silvo",
-      "pozicija": "50% 20%",
-      "velikost": "100",
-      "nacin": "contain"
-    },
-    {
-      "slika": "assets/gallery-20260716-103121146.jpg",
-      "opis": "Razpoloženje na vajah, Tomo in Šani",
-      "pozicija": "center top",
-      "velikost": "100",
-      "nacin": "contain"
-    },
-    {
       "slika": "assets/gallery-20260716-105630218.jpeg",
-      "opis": "Koncert na fužinskem gradu",
+      "opis": "",
       "pozicija": "center center",
       "velikost": "50",
       "nacin": "contain"
     },
     {
-      "slika": "assets/gallery-20260928-114719324.jpg",
-      "opis": "Fotografiranje v studiu",
+      "slika": "assets/gallery-20261006-134201005.jpg",
+      "opis": "",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
     },
     {
-      "slika": "assets/gallery-20260916-134548876.jpg",
-      "opis": "Fotografiranje v studiu",
+      "slika": "assets/gallery-20261006-134206898.jpg",
+      "opis": "",
+      "pozicija": "center center",
+      "velikost": "100",
+      "nacin": "cover"
+    },
+    {
+      "slika": "assets/gallery-20261006-134827153.jpg",
+      "opis": "",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"

@@ -463,7 +463,7 @@ Public Class MainForm
     Private Sub LoadMusicTable(data As JsonObject)
         musicTable.Rows.Clear()
         Dim pesmi=data("pesmi")?.AsArray()
-        If pesmi IsNot Nothing AndAlso pesmi.Count>0 Then
+        If pesmi IsNot Nothing Then
             For Each item In pesmi
                 Dim o=item.AsObject()
                 musicTable.Rows.Add(If(o("naslov")?.GetValue(Of String)(),""),If(o("opis")?.GetValue(Of String)(),""),If(o("link")?.GetValue(Of String)(),""))
@@ -528,6 +528,12 @@ Public Class MainForm
                 If naslov<>"" Then pesmi.Add(New JsonObject From {{"naslov",naslov},{"opis",Convert.ToString(row.Cells(1).Value).Trim()},{"link",Convert.ToString(row.Cells(2).Value).Trim()}})
             Next
             data("pesmi")=pesmi
+            ' Stare številčne ključe skladba1/2… odstranimo, ker so nadomeščeni z arrayem "pesmi"
+            Dim legacy As New List(Of String)
+            For Each kv In data
+                If kv.Key.StartsWith("skladba") Then legacy.Add(kv.Key)
+            Next
+            For Each k In legacy : data.Remove(k) : Next
             Dim options As New JsonSerializerOptions With {.WriteIndented=True,.Encoder=JavaScriptEncoder.UnsafeRelaxedJsonEscaping}
             File.WriteAllText(contentFile,"window.VSEBINA = " & data.ToJsonString(options) & ";" & Environment.NewLine,New System.Text.UTF8Encoding(False))
             lastSaveSucceeded=True
