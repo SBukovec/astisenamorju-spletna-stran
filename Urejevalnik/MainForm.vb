@@ -16,6 +16,7 @@ Public Class MainForm
     Private ReadOnly statusLabel As New Label()
     Private ReadOnly galleryTable As New DataGridView()
     Private ReadOnly videoTable As New DataGridView()
+    Private ReadOnly musicTable As New DataGridView()
     Private ReadOnly githubSettingsFile As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"ASTISENAMORJU-CMS","github-folder.txt")
     Private lastSaveSucceeded As Boolean
     Private ReadOnly menuPanel As New TableLayoutPanel()
@@ -47,7 +48,7 @@ Public Class MainForm
     End Function
 
     Private Sub BuildInterface()
-        Text = $"ASTIŠENAMORJU — CMS  ·  zgradba {BuildStamp()}"
+        Text = $"ASTIŠENAMORJU — CMS  ·  Verzija {BuildStamp()}"
         StartPosition = FormStartPosition.CenterScreen
         MinimumSize = New Size(900, 720)
         Size = New Size(1060, 860)
@@ -174,8 +175,49 @@ Public Class MainForm
     Private Sub BuildMusicTab(t As TabControl)
         Dim p=NewTab(t,"Glasba")
         AddField(p,"musicIndex","Oznaka sekcije") : AddField(p,"musicTitle","Naslov") : AddField(p,"musicDescription","Opis",True)
-        For i=1 To 2 : AddField(p,$"skladba{i}",$"Skladba {i}") : AddField(p,$"skladba{i}Opis",$"Skladba {i} — opis") : AddField(p,$"skladba{i}Link",$"Skladba {i} — povezava") : Next
+        Dim row=p.RowCount : p.RowCount+=1
+        musicTable.Dock=DockStyle.Fill : musicTable.Height=300 : musicTable.AllowUserToAddRows=False : musicTable.AllowUserToDeleteRows=False
+        musicTable.AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.Fill : musicTable.SelectionMode=DataGridViewSelectionMode.FullRowSelect : musicTable.MultiSelect=False
+        musicTable.Columns.Add("naslov","Naslov skladbe") : musicTable.Columns.Add("opis","Opis") : musicTable.Columns.Add("link","Povezava")
+        musicTable.Columns(0).FillWeight=40 : musicTable.Columns(1).FillWeight=30 : musicTable.Columns(2).FillWeight=30
+        p.Controls.Add(musicTable,0,row) : p.SetColumnSpan(musicTable,2)
+        row=p.RowCount : p.RowCount+=1
+        Dim buttons As New FlowLayoutPanel With {.AutoSize=True,.Dock=DockStyle.Top,.Margin=New Padding(0,8,0,8)}
+        buttons.Controls.Add(MakeButton("Dodaj skladbo",AddressOf AddSongRow,True))
+        buttons.Controls.Add(MakeButton("Odstrani",AddressOf RemoveSongRow,False))
+        buttons.Controls.Add(MakeButton("Premakni gor",AddressOf MoveSongUp,False))
+        buttons.Controls.Add(MakeButton("Premakni dol",AddressOf MoveSongDown,False))
+        p.Controls.Add(buttons,0,row) : p.SetColumnSpan(buttons,2)
+        row=p.RowCount : p.RowCount+=1
+        Dim help As New Label With {.AutoSize=True,.Text="Z dodajanjem lahko vneseš poljubno število skladb. Prazno povezavo pusti, če skladbe še ni mogoče poslušati.",.ForeColor=Color.FromArgb(94,87,78)}
+        p.Controls.Add(help,0,row) : p.SetColumnSpan(help,2)
         AddField(p,"musicNote","Opomba")
+    End Sub
+
+    Private Sub AddSongRow(s As Object,e As EventArgs)
+        Dim index=musicTable.Rows.Add("","","") : musicTable.ClearSelection() : musicTable.Rows(index).Selected=True
+        SetStatus("Vpiši naslov, opis in povezavo skladbe ter shrani spremembe.",False)
+    End Sub
+
+    Private Sub RemoveSongRow(s As Object,e As EventArgs)
+        If musicTable.SelectedRows.Count=1 Then musicTable.Rows.Remove(musicTable.SelectedRows(0))
+    End Sub
+
+    Private Sub MoveSongUp(s As Object,e As EventArgs)
+        MoveSongRow(-1)
+    End Sub
+
+    Private Sub MoveSongDown(s As Object,e As EventArgs)
+        MoveSongRow(1)
+    End Sub
+
+    Private Sub MoveSongRow(direction As Integer)
+        If musicTable.SelectedRows.Count<>1 Then Return
+        Dim row=musicTable.SelectedRows(0) : Dim target=row.Index+direction
+        If target<0 OrElse target>=musicTable.Rows.Count Then Return
+        Dim values={row.Cells(0).Value,row.Cells(1).Value,row.Cells(2).Value}
+        For i=0 To 2 : row.Cells(i).Value=musicTable.Rows(target).Cells(i).Value : musicTable.Rows(target).Cells(i).Value=values(i) : Next
+        musicTable.ClearSelection() : musicTable.Rows(target).Selected=True
     End Sub
 
     Private Sub BuildLiveTab(t As TabControl)
@@ -414,7 +456,26 @@ Public Class MainForm
             End If
             SetStatus("Vsebina je naložena.",False)
             Call LoadVideoTable(data)
+            Call LoadMusicTable(data)
         Catch ex As Exception : MessageBox.Show(ex.Message,"Napaka pri nalaganju",MessageBoxButtons.OK,MessageBoxIcon.Error) : End Try
+    End Sub
+
+    Private Sub LoadMusicTable(data As JsonObject)
+        musicTable.Rows.Clear()
+        Dim pesmi=data("pesmi")?.AsArray()
+        If pesmi IsNot Nothing AndAlso pesmi.Count>0 Then
+            For Each item In pesmi
+                Dim o=item.AsObject()
+                musicTable.Rows.Add(If(o("naslov")?.GetValue(Of String)(),""),If(o("opis")?.GetValue(Of String)(),""),If(o("link")?.GetValue(Of String)(),""))
+            Next
+        Else
+            ' Stara oblika (skladba1, skladba1Opis, skladba1Link …) — za nazaj združljivo
+            Dim i=1
+            While data.ContainsKey($"skladba{i}")
+                musicTable.Rows.Add(If(data($"skladba{i}")?.GetValue(Of String)(),""),If(data($"skladba{i}Opis")?.GetValue(Of String)(),""),If(data($"skladba{i}Link")?.GetValue(Of String)(),""))
+                i+=1
+            End While
+        End If
     End Sub
 
     Private Sub LoadVideoTable(data As JsonObject)
@@ -461,6 +522,12 @@ Public Class MainForm
                 If vid<>"" Then videoteka.Add(New JsonObject From {{"video",vid},{"naslov",Convert.ToString(row.Cells(1).Value).Trim()},{"aktiven",DefaultCell(row,2,"da")}})
             Next
             data("videoteka")=videoteka
+            Dim pesmi As New JsonArray()
+            For Each row As DataGridViewRow In musicTable.Rows
+                Dim naslov=Convert.ToString(row.Cells(0).Value).Trim()
+                If naslov<>"" Then pesmi.Add(New JsonObject From {{"naslov",naslov},{"opis",Convert.ToString(row.Cells(1).Value).Trim()},{"link",Convert.ToString(row.Cells(2).Value).Trim()}})
+            Next
+            data("pesmi")=pesmi
             Dim options As New JsonSerializerOptions With {.WriteIndented=True,.Encoder=JavaScriptEncoder.UnsafeRelaxedJsonEscaping}
             File.WriteAllText(contentFile,"window.VSEBINA = " & data.ToJsonString(options) & ";" & Environment.NewLine,New System.Text.UTF8Encoding(False))
             lastSaveSucceeded=True
