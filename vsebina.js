@@ -62,11 +62,6 @@ window.VSEBINA = {
       "naslov": "Svatba",
       "opis": "Avtorska skladba",
       "link": "https://1drv.ms/u/c/89017a45320dda76/IQCTgEQuYhF2R7GQtSdbnw77AXilqLpPv8NfCqdRWSiygDs?e=KEPBzv"
-    },
-    {
-      "naslov": "Magija",
-      "opis": "Avtorska skladba · v živo",
-      "link": ""
     }
   ],
   "musicNote": "Posnetke in povezave dodamo, ko izberemo uradne različice.",
