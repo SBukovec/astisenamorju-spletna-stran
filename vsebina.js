@@ -78,27 +78,6 @@ window.VSEBINA = {
   "gallery3Pozicija": "50% 50%",
   "galerija": [
     {
-      "slika": "assets/nastop-intimno.jpg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "100",
-      "nacin": "cover"
-    },
-    {
-      "slika": "assets/oder-transparent.jpg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "100",
-      "nacin": "cover"
-    },
-    {
-      "slika": "assets/gallery-20260716-105630218.jpeg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "50",
-      "nacin": "contain"
-    },
-    {
       "slika": "assets/gallery-20261006-134201005.jpg",
       "opis": "",
       "pozicija": "center center",
