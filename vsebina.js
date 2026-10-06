@@ -37,7 +37,7 @@ window.VSEBINA = {
   "scrollTekst": "Pomakni se navzdol ↓",
   "storyIndex": "01 / Kdo smo",
   "storyTitle": "Ime je vprašanje. Glasba je odgovor.",
-  "zgodba1": "Člani benda smo: Šani Kolbezen, vokal, kitara, Silvester Bukovec, vokal, kitara, Tomaž Polak, vokal, bas ter Matej Palka, vokal, bobni.",
+  "zgodba1": "Člani: Šani Kolbezen, vokal, kitara, Silvester Bukovec, vokal, kitara, mandolina, Tomaž Polak, vokal, bas ter Matej Palka, vokal, bobni.",
   "zgodba2": "Igramo izključno avtorske skladbe — akustični pop in rock z nekaj country prahu na čevljih. V ospredju so zgodbe, besede in ljudje, ki radi igrajo skupaj.",
   "storySlika": "assets/skupina-rdeca.jpg",
   "storySlikaAlt": "Člani skupine ASTIŠENAMORJU po nastopu",
@@ -58,7 +58,7 @@ window.VSEBINA = {
   "liveDescription": "Klubi, manjši odri, festivali in večeri, kjer imajo pesmi dovolj prostora.",
   "liveLinkText": "Dogovori se za nastop →",
   "liveLinkUrl": "#kontakt",
-  "liveSlika": "assets/nastop-muzej.jpg",
+  "liveSlika": "assets/liveslika.jpg",
   "liveSlikaAlt": "",
   "liveSlikaPozicija": "center center",
   "liveSlikaVelikost": "100",
@@ -77,13 +77,6 @@ window.VSEBINA = {
   "gallery3Alt": "Člana skupine v zakulisju",
   "gallery3Pozicija": "50% 50%",
   "galerija": [
-    {
-      "slika": "assets/gallery-20261006-134201005.jpg",
-      "opis": "",
-      "pozicija": "center center",
-      "velikost": "100",
-      "nacin": "cover"
-    },
     {
       "slika": "assets/gallery-20261006-134206898.jpg",
       "opis": "",
