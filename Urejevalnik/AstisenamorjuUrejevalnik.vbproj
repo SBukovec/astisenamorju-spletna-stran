@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>AstisenamorjuUrejevalnik</RootNamespace>
+    <StartupObject>AstisenamorjuUrejevalnik.Program</StartupObject>
+    <OptionStrict>On</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <ApplicationIcon>AstisenamorjuUrejevalnik.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="AstisenamorjuUrejevalnik.ico" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="CopyWithSourceToPublish" AfterTargets="Publish">
+    <Copy SourceFiles="AstisenamorjuUrejevalnik.vbproj;MainForm.vb;Program.vb;SiteContent.vb;NuGet.Config;README.txt;AstisenamorjuUrejevalnik.ico" DestinationFolder="$(PublishDir)" />
+  </Target>
+</Project>
