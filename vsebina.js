@@ -51,7 +51,13 @@ window.VSEBINA = {
   "musicIndex": "02 / Glasba",
   "musicTitle": "Pesmi z besedami.",
   "musicDescription": "Avtorske skladbe, ki živijo med popom, rockom in countryjem — vedno s poudarkom na zgodbi.",
-  "pesmi": [],
+  "pesmi": [
+    {
+      "naslov": "Zapuščena generacija",
+      "opis": "Naša je prihodnost, ...",
+      "link": "assets/glasba/skladba-464468140964453b84f5b0bb203aecd0.mp3"
+    }
+  ],
   "musicNote": "Posnetke in povezave dodamo, ko izberemo uradne različice.",
   "liveIndex": "03 / V živo",
   "liveTitle": "Najbolje zvenimo v istem prostoru.",
