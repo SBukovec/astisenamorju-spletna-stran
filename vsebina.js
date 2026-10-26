@@ -54,11 +54,11 @@ window.VSEBINA = {
   "pesmi": [
     {
       "naslov": "Zapuščena generacija",
-      "opis": "Naša je prihodnost, ...",
-      "link": "assets/glasba/skladba-464468140964453b84f5b0bb203aecd0.mp3"
+      "opis": "Naša je prihodnost ...",
+      "link": "assets/glasba/skladba-f15a4b5eac2a4386ace594d44788a7a8.mp3"
     }
   ],
-  "musicNote": "Posnetke in povezave dodamo, ko izberemo uradne različice.",
+  "musicNote": "",
   "liveIndex": "03 / V živo",
   "liveTitle": "Najbolje zvenimo v istem prostoru.",
   "liveDescription": "Klubi, manjši odri, festivali in večeri, kjer imajo pesmi dovolj prostora.",
