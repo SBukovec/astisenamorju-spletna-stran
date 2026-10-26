@@ -1,25 +1,16 @@
-ASTIŠENAMORJU — UREJEVALNIK
+UREJEVALNIK ASTISENAMORJU
 
-Zagon iz Visual Studia:
-1. Odpri AstisenamorjuUrejevalnik.vbproj.
-2. Pritisni F5.
+Zagon: Program\AstisenamorjuUrejevalnik.exe
+Samostojen Windows x64 program; namestitev .NET ni potrebna.
+Ob prvem zagonu izberi mapo vsebine: C:\SILVO\SpletnaStranBenda-Vsebina
+Pot se shrani za tvoj Windows uporabniski racun. Program lahko premaknes drugam.
+Mapa spletne strani: izbere drugo mapo vsebine.
+Shrani spremembe: shrani vsebina.js neposredno v izbrano mapo.
+Pripravi za GitHub: shrani vsebino in v repozitorij skopira samostojni program ter izvorni projekt VB.NET.
+Nato v GitHub Desktopu Commit in Push origin.
 
-Zagon iz ukazne vrstice v tej mapi:
-dotnet run
-
-Uporaba:
-1. Spremeni besedila ali izberi naslovni video.
-2. Klikni »Shrani spremembe«.
-3. Klikni »Odpri predogled« oziroma osveži že odprto stran s Ctrl+R.
-
-Program spreminja datoteko vsebina.js in izbrane grafične datoteke kopira v mapo assets.
-
-Zavihki CMS-a omogočajo urejanje:
-- imena, logotipa, navigacije in podatkov za iskalnike,
-- naslovnega videa, posterja, naslovov in gumbov,
-- zgodbe, fotografije in zasedbe,
-- skladb in povezav,
-- koncertne sekcije,
-- galerije,
-- kontakta, družbenih omrežij in noge strani,
-- osnovnih barv strani.
+DRUG RACUNALNIK
+Kloniraj celoten repozitorij. Zazeni Urejevalnik\AstisenamorjuUrejevalnik.exe.
+Izberi klonirano mapo, ki vsebuje index.html in vsebina.js.
+Za razvoj odpri Urejevalnik\AstisenamorjuUrejevalnik.vbproj v Visual Studiu (.NET 9 Windows Forms).
+Celotne mape ne nadomescaj s posameznim EXE: za samostojen zagon so potrebne tudi prilozenе DLL datoteke.

@@ -3,6 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <DefaultItemExcludes>$(DefaultItemExcludes);Program/**</DefaultItemExcludes>
     <RootNamespace>AstisenamorjuUrejevalnik</RootNamespace>
     <StartupObject>AstisenamorjuUrejevalnik.Program</StartupObject>
     <OptionStrict>On</OptionStrict>

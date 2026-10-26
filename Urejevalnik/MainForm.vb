@@ -1,4 +1,4 @@
-Imports System.Diagnostics
+﻿Imports System.Diagnostics
 Imports System.Drawing
 Imports System.IO
 Imports System.Text.Encodings.Web
@@ -11,13 +11,13 @@ Public Class MainForm
     Inherits Form
 
     Private ReadOnly fields As New Dictionary(Of String, Control)()
-    Private ReadOnly websiteFolder As String
-    Private ReadOnly contentFile As String
+    Private websiteFolder As String
+    Private contentFile As String
     Private ReadOnly statusLabel As New Label()
     Private ReadOnly galleryTable As New DataGridView()
     Private ReadOnly videoTable As New DataGridView()
     Private ReadOnly musicTable As New DataGridView()
-    Private ReadOnly githubSettingsFile As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"ASTISENAMORJU-CMS","github-folder.txt")
+    Private ReadOnly contentSettingsFile As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"ASTISENAMORJU-CMS","content-folder.txt")
     Private lastSaveSucceeded As Boolean
     Private ReadOnly menuPanel As New TableLayoutPanel()
     Private ReadOnly menuItems As New List(Of Tuple(Of TextBox, TextBox))()
@@ -38,17 +38,68 @@ Public Class MainForm
         Return "?"
     End Function
 
-    Private Shared Function FindWebsiteFolder() As String
-        Dim folder As New DirectoryInfo(AppContext.BaseDirectory)
-        While folder IsNot Nothing
-            If File.Exists(Path.Combine(folder.FullName, "index.html")) Then Return folder.FullName
-            folder = folder.Parent
-        End While
-        Throw New DirectoryNotFoundException("Ne najdem mape spletne strani z datoteko index.html.")
+    Private Shared Function IsWebsiteFolder(folder As String) As Boolean
+        Return Not String.IsNullOrWhiteSpace(folder) AndAlso File.Exists(Path.Combine(folder,"index.html")) AndAlso File.Exists(Path.Combine(folder,"vsebina.js"))
     End Function
 
+    Private Function FindWebsiteFolder() As String
+        If File.Exists(contentSettingsFile) Then
+            Dim saved=File.ReadAllText(contentSettingsFile).Trim()
+            If IsWebsiteFolder(saved) Then Return saved
+        End If
+        Dim initial="C:\SILVO\SpletnaStranBenda-Vsebina"
+        If IsWebsiteFolder(initial) Then
+            Directory.CreateDirectory(Path.GetDirectoryName(contentSettingsFile))
+            File.WriteAllText(contentSettingsFile,initial)
+            Return initial
+        End If
+        Using d As New FolderBrowserDialog With {.Description="Izberi mapo vsebine spletne strani (index.html in vsebina.js)",.UseDescriptionForTitle=True,.ShowNewFolderButton=False}
+            If Directory.Exists(initial) Then d.SelectedPath=initial
+            Do
+                If d.ShowDialog()<>DialogResult.OK Then Throw New OperationCanceledException()
+                If IsWebsiteFolder(d.SelectedPath) Then
+                    Directory.CreateDirectory(Path.GetDirectoryName(contentSettingsFile))
+                    File.WriteAllText(contentSettingsFile,d.SelectedPath)
+                    Return d.SelectedPath
+                End If
+                MessageBox.Show("Izbrana mapa mora vsebovati index.html in vsebina.js.")
+            Loop
+        End Using
+    End Function
+
+    Private Sub ChooseContentFolderClicked(s As Object,e As EventArgs)
+        Dim choice=MessageBox.Show("Naj pred izbiro druge mape shranim trenutne spremembe?","Mapa spletne strani",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question)
+        If choice=DialogResult.Cancel Then Return
+        If choice=DialogResult.Yes Then
+            SaveClicked(s,e)
+            If Not lastSaveSucceeded Then Return
+        End If
+        Using d As New FolderBrowserDialog With {.Description="Izberi mapo vsebine spletne strani",.UseDescriptionForTitle=True,.ShowNewFolderButton=False,.SelectedPath=websiteFolder}
+            If d.ShowDialog(Me)<>DialogResult.OK Then Return
+            If Not IsWebsiteFolder(d.SelectedPath) Then
+                MessageBox.Show("Izbrana mapa mora vsebovati index.html in vsebina.js.")
+                Return
+            End If
+            Try
+                Dim options As New JsonSerializerOptions()
+                Dim check=File.ReadAllText(Path.Combine(d.SelectedPath,"vsebina.js"))
+                Dim jsonStart=check.IndexOf("{"c)
+                Dim jsonEnd=check.LastIndexOf("}"c)
+                JsonNode.Parse(check.Substring(jsonStart,jsonEnd-jsonStart+1))
+                File.WriteAllText(contentSettingsFile,d.SelectedPath)
+                websiteFolder=d.SelectedPath
+                contentFile=Path.Combine(websiteFolder,"vsebina.js")
+                LoadContent()
+                Text="ASTIŠENAMORJU — CMS | " & websiteFolder
+                SetStatus("Vsebina: " & websiteFolder,True)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message,"Napaka pri izbiri mape")
+            End Try
+        End Using
+    End Sub
+
     Private Sub BuildInterface()
-        Text = $"ASTIŠENAMORJU — CMS  ·  Verzija {BuildStamp()}"
+        Text = $"ASTIŠENAMORJU — CMS  ·  {BuildStamp()} | {websiteFolder}"
         StartPosition = FormStartPosition.CenterScreen
         MinimumSize = New Size(900, 720)
         Size = New Size(1060, 860)
@@ -81,9 +132,9 @@ Public Class MainForm
         buttons.Controls.Add(MakeButton("Shrani spremembe", AddressOf SaveClicked, True))
         buttons.Controls.Add(MakeButton("Odpri predogled", AddressOf PreviewClicked, False))
         buttons.Controls.Add(MakeButton("Ponovno naloži", AddressOf ReloadClicked, False))
-        buttons.Controls.Add(MakeButton("Odpri mapo Materiali", AddressOf MaterialsClicked, False))
+        buttons.Controls.Add(MakeButton("Odpri medijske datoteke", AddressOf MaterialsClicked, False))
         buttons.Controls.Add(MakeButton("Pripravi za GitHub", AddressOf PublishToGitHubClicked, False))
-        buttons.Controls.Add(MakeButton("Nastavi GitHub mapo", AddressOf ChooseGitHubFolderClicked, False))
+        buttons.Controls.Add(MakeButton("Mapa spletne strani", AddressOf ChooseContentFolderClicked, False))
         root.Controls.Add(buttons, 0, 1)
 
         statusLabel.AutoSize = True
@@ -672,60 +723,25 @@ Public Class MainForm
         LoadContent()
     End Sub
     Private Sub MaterialsClicked(s As Object,e As EventArgs)
-        Process.Start(New ProcessStartInfo(Path.Combine(websiteFolder,"Materiali")) With {.UseShellExecute=True})
-    End Sub
-
-    Private Function SavedGitHubFolder() As String
-        Try
-            If File.Exists(githubSettingsFile) Then
-                Dim saved=File.ReadAllText(githubSettingsFile).Trim()
-                If Directory.Exists(saved) Then Return saved
-            End If
-            Dim suggested=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"GitHub","astisenamorju-spletna-stran")
-            If Directory.Exists(suggested) Then Return suggested
-        Catch
-        End Try
-        Return ""
-    End Function
-
-    Private Function ChooseGitHubFolder() As String
-        Using d As New FolderBrowserDialog With {.Description="Izberi lokalno mapo repozitorija astisenamorju-spletna-stran",.UseDescriptionForTitle=True,.ShowNewFolderButton=False}
-            Dim current=SavedGitHubFolder() : If current<>"" Then d.SelectedPath=current
-            If d.ShowDialog(Me)<>DialogResult.OK Then Return ""
-            If Not Directory.Exists(Path.Combine(d.SelectedPath,".git")) Then
-                MessageBox.Show("Izbrana mapa ni lokalni GitHub repozitorij. V GitHub Desktopu klikni »Show in Explorer« in izberi mapo, ki se odpre.","Napačna mapa",MessageBoxButtons.OK,MessageBoxIcon.Warning)
-                Return ""
-            End If
-            Directory.CreateDirectory(Path.GetDirectoryName(githubSettingsFile))
-            File.WriteAllText(githubSettingsFile,d.SelectedPath)
-            Return d.SelectedPath
-        End Using
-    End Function
-
-    Private Sub ChooseGitHubFolderClicked(s As Object,e As EventArgs)
-        Dim folder=ChooseGitHubFolder()
-        If folder<>"" Then SetStatus("GitHub mapa je nastavljena: " & folder,True)
+        Dim folder=Path.Combine(websiteFolder,"Materiali")
+        If Not Directory.Exists(folder) Then folder=Path.Combine(websiteFolder,"assets")
+        Process.Start(New ProcessStartInfo(folder) With {.UseShellExecute=True})
     End Sub
 
     Private Sub PublishToGitHubClicked(s As Object,e As EventArgs)
         SaveClicked(s,e) : If Not lastSaveSucceeded Then Return
-        Dim target=SavedGitHubFolder() : If target="" Then target=ChooseGitHubFolder()
-        If target="" Then Return
+        If Not Directory.Exists(Path.Combine(websiteFolder,".git")) AndAlso Not File.Exists(Path.Combine(websiteFolder,".git")) Then
+            MessageBox.Show("Izbrana mapa vsebine ni repozitorij Git. Izberi drugo mapo z gumbom Mapa spletne strani.","Mapa repozitorija",MessageBoxButtons.OK,MessageBoxIcon.Warning)
+            Return
+        End If
         Try
-            For Each fileName As String In New String() {"index.html","styles.css","script.js","vsebina.js"}
-                RobustCopy(Path.Combine(websiteFolder,fileName),Path.Combine(target,fileName))
-            Next
-            CopyFolder(Path.Combine(websiteFolder,"assets"),Path.Combine(target,"assets"))
-            CopyFolder(Path.Combine(websiteFolder,"Urejevalnik"),Path.Combine(target,"Urejevalnik"))
-            SetStatus("Pripravljeno za GitHub. V GitHub Desktopu naredi Commit in Push origin.",True)
-            MessageBox.Show("Spletne datoteke IN urejevalnik (program + izvorna koda) so prekopirani v lokalni GitHub repozitorij." & Environment.NewLine & Environment.NewLine & "Zdaj v GitHub Desktopu naredi Commit to main in nato Push origin.","Pripravljeno za objavo",MessageBoxButtons.OK,MessageBoxIcon.Information)
+            CopyFolder(AppContext.BaseDirectory,Path.Combine(websiteFolder,"Urejevalnik"))
         Catch ex As Exception
-            If ex.Message.Contains("uporablja") OrElse ex.Message.Contains("used by another process") Then
-                MessageBox.Show("Datoteke ni mogoče prekopirati. Podrobnosti:" & Environment.NewLine & ex.Message,"Datoteka je zasedena",MessageBoxButtons.OK,MessageBoxIcon.Warning)
-            Else
-                MessageBox.Show(ex.Message,"Napaka pri pripravi za GitHub",MessageBoxButtons.OK,MessageBoxIcon.Error)
-            End If
+            MessageBox.Show(ex.Message,"Napaka pri pripravi urejevalnika za GitHub",MessageBoxButtons.OK,MessageBoxIcon.Error)
+            Return
         End Try
+        SetStatus("Shranjeno neposredno v repozitorij: " & websiteFolder,True)
+        MessageBox.Show("Vsebina in celoten urejevalnik so pripravljeni v repozitoriju:" & Environment.NewLine & websiteFolder & Environment.NewLine & Environment.NewLine & "V GitHub Desktopu izberi to mapo, naredi Commit in nato Push origin.","Pripravljeno za GitHub",MessageBoxButtons.OK,MessageBoxIcon.Information)
     End Sub
 
     Private Shared Sub RobustCopy(sourcePath As String,targetPath As String)

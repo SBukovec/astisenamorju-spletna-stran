@@ -6,6 +6,12 @@ Friend Module Program
     Public Sub Main()
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
-        Application.Run(New MainForm())
+        Try
+            Application.Run(New MainForm())
+        Catch ex As OperationCanceledException
+            ' Preklic izbire mape.
+        Catch ex As Exception
+            MessageBox.Show(ex.Message,"Napaka pri zagonu",MessageBoxButtons.OK,MessageBoxIcon.Error)
+        End Try
     End Sub
 End Module

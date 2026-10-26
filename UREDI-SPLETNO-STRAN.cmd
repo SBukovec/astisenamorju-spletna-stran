@@ -1,2 +1,2 @@
-@echo off
-start "" "%~dp0Urejevalnik-enotni\AstisenamorjuUrejevalnik.exe"
+@echo off
+start "" "%~dp0Urejevalnik\AstisenamorjuUrejevalnik.exe"
