@@ -1,0 +1,10 @@
+UREJANJE SPLETNE STRANI
+
+1. Za urejanje odpri UREDI-SPLETNO-STRAN.cmd v tej mapi.
+2. Uredi vsebino, dodaj MP3 in klikni Shrani spremembe.
+3. V GitHub Desktopu uporabljaj samo repozitorij s to potjo:
+C:\SILVO\VISUAL_STUDIO_VSI_PROJEKTI\astisenamorju-spletna-stran
+4. Commit to main, nato Push origin. Ce je potrebno, najprej Pull origin.
+
+Urejevalnik shrani vse neposredno v ta repozitorij. Kopiranje v drugo mapo ni potrebno.
+Stare kopije lahko odstranis s seznama v GitHub Desktopu; ne brisi datotek.
