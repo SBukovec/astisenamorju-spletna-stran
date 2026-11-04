@@ -7,7 +7,7 @@ window.VSEBINA = {
   "imeGrafikaOdmikY": "0",
   "logotip": "assets/logotip.png",
   "naslovStrani": "ASTIŠENAMORJU — avtorski akustični pop/rock",
-  "metaOpis": "ASTIŠENAMORJU/ASTISENAMORJUI — avtorski akustični pop in rock z dotikom countryja in dobrimi besedili.",
+  "metaOpis": "ASTIŠENAMORJU/ASTISENAMORJU — avtorski akustični pop in rock z dotikom countryja in dobrimi besedili.",
   "barvaOzadja": "#400000",
   "barvaPapirja": "#f0eadf",
   "barvaPoudarka": "#d56f3e",
@@ -54,7 +54,7 @@ window.VSEBINA = {
   "pesmi": [
     {
       "naslov": "Zapuščena generacija",
-      "opis": "",
+      "opis": "ASTIŠENAMORJU - Zapuščena generacija",
       "link": "assets/glasba/skladba-fdb927ef5a854622abca4b5b22cebe07.mp3"
     }
   ],
@@ -85,14 +85,14 @@ window.VSEBINA = {
   "galerija": [
     {
       "slika": "assets/gallery-20261006-134206898.jpg",
-      "opis": "",
+      "opis": "ASTIŠENAMORJU",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
     },
     {
       "slika": "assets/gallery-20261006-134827153.jpg",
-      "opis": "",
+      "opis": "ASTIŠENAMORJU",
       "pozicija": "center center",
       "velikost": "100",
       "nacin": "cover"
