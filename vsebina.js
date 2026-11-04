@@ -1,5 +1,5 @@
 window.VSEBINA = {
-  "imeBenda": "",
+  "imeBenda": "ASTIŠENAMORJU",
   "headerMode": "grafika",
   "imeGrafika": "assets/imegrafika.png",
   "imeGrafikaVelikost": "50",
