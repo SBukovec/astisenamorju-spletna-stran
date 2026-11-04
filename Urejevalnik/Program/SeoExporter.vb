@@ -168,11 +168,12 @@ Friend NotInheritable Class SeoExporter
         ' Existing JS rebuilds these collections: clear the static items first, exactly once.
         Dim scriptPath = Path.Combine(folder, "script.js")
         Dim script = File.ReadAllText(scriptPath)
+        script = script.Replace("// seo-export", "/* seo-export */")
         For Each id In {"main-nav", "lineup", "song-list", "socials", "video-grid"}
             Dim pattern = "const\s+(?<variable>\w+)\s*=\s*document\.getElementById\(['"" ]*" & Regex.Escape(id) & "['"" ]*\);"
             Dim declaration = Regex.Match(script, pattern)
             If Not declaration.Success Then Throw New InvalidDataException("V script.js manjka zbirka: " & id)
-            Dim clear = declaration.Groups("variable").Value & ".replaceChildren(); // seo-export"
+            Dim clear = declaration.Groups("variable").Value & ".replaceChildren(); /* seo-export */"
             If Not script.Contains(clear) Then script = script.Replace(declaration.Value, declaration.Value & vbLf & clear)
         Next
         Dim version = DateTime.UtcNow.ToString("yyyyMMddHHmmssfffffff")

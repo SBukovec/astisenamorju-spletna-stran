@@ -69,7 +69,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>7AVnACnn9iGkBXUoCSsSB1tmxI0xD/tIoj88611lVv8=</dsig:DigestValue>
+      <dsig:DigestValue>t/vV+XmbDZQTLxuYl4z2zbU6Rzvonb5japSrFRVq+xM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AstisenamorjuUrejevalnik.exe" size="210432">
@@ -78,7 +78,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>kV1jL1X/A5vecOPWbwCwx3KVPihpvv5LNNLV7p4VOu4=</dsig:DigestValue>
+      <dsig:DigestValue>leh6zwQujWtK/yJJSsjIyXo4mG4gqxoYNweZ12QXsqA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AstisenamorjuUrejevalnik.ico" size="53635">
