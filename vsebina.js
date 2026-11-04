@@ -106,7 +106,7 @@ window.VSEBINA = {
   "facebookText": "Facebook",
   "facebookUrl": "",
   "instagramText": "Instagram",
-  "instagramUrl": "",
+  "instagramUrl": "https://www.instagram.com/astisenamorju/",
   "youtubeText": "YouTube",
   "youtubeUrl": "",
   "footerLeft": "© 2026 ASTIŠENAMORJU",
