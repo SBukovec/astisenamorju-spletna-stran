@@ -7,7 +7,7 @@ window.VSEBINA = {
   "imeGrafikaOdmikY": "0",
   "logotip": "assets/logotip.png",
   "naslovStrani": "ASTIŠENAMORJU — avtorski akustični pop/rock",
-  "metaOpis": "ASTIŠENAMORJU — avtorski akustični pop in rock z dotikom countryja in dobrimi besedili.",
+  "metaOpis": "ASTIŠENAMORJU/ASTISENAMORJUI — avtorski akustični pop in rock z dotikom countryja in dobrimi besedili.",
   "barvaOzadja": "#400000",
   "barvaPapirja": "#f0eadf",
   "barvaPoudarka": "#d56f3e",

@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SILVO\\VISUAL_STUDIO_VSI_PROJEKTI\\astisenamorju-spletna-stran\\Urejevalnik\\AstisenamorjuUrejevalnik.vbproj": {}
+    "C:\\SILVO\\SpletnaStranBenda-Vsebina\\Urejevalnik\\AstisenamorjuUrejevalnik.vbproj": {}
   },
   "projects": {
-    "C:\\SILVO\\VISUAL_STUDIO_VSI_PROJEKTI\\astisenamorju-spletna-stran\\Urejevalnik\\AstisenamorjuUrejevalnik.vbproj": {
+    "C:\\SILVO\\SpletnaStranBenda-Vsebina\\Urejevalnik\\AstisenamorjuUrejevalnik.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SILVO\\VISUAL_STUDIO_VSI_PROJEKTI\\astisenamorju-spletna-stran\\Urejevalnik\\AstisenamorjuUrejevalnik.vbproj",
+        "projectUniqueName": "C:\\SILVO\\SpletnaStranBenda-Vsebina\\Urejevalnik\\AstisenamorjuUrejevalnik.vbproj",
         "projectName": "AstisenamorjuUrejevalnik",
-        "projectPath": "C:\\SILVO\\VISUAL_STUDIO_VSI_PROJEKTI\\astisenamorju-spletna-stran\\Urejevalnik\\AstisenamorjuUrejevalnik.vbproj",
+        "projectPath": "C:\\SILVO\\SpletnaStranBenda-Vsebina\\Urejevalnik\\AstisenamorjuUrejevalnik.vbproj",
         "packagesPath": "C:\\Users\\BUKOVECS.ILIRIJALK\\.nuget\\packages\\",
-        "outputPath": "C:\\SILVO\\VISUAL_STUDIO_VSI_PROJEKTI\\astisenamorju-spletna-stran\\Urejevalnik\\obj\\",
+        "outputPath": "C:\\SILVO\\SpletnaStranBenda-Vsebina\\Urejevalnik\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\SILVO\\VISUAL_STUDIO_VSI_PROJEKTI\\astisenamorju-spletna-stran\\Urejevalnik\\NuGet.Config",
+          "C:\\SILVO\\SpletnaStranBenda-Vsebina\\Urejevalnik\\NuGet.Config",
           "C:\\Users\\BUKOVECS.ILIRIJALK\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",

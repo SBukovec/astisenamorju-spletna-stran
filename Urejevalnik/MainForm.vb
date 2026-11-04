@@ -1,4 +1,4 @@
-﻿Imports System.Diagnostics
+Imports System.Diagnostics
 Imports System.Drawing
 Imports System.IO
 Imports System.Text.Encodings.Web
@@ -614,9 +614,9 @@ Public Class MainForm
             Next
             For Each k In legacy : data.Remove(k) : Next
             Dim options As New JsonSerializerOptions With {.WriteIndented=True,.Encoder=JavaScriptEncoder.UnsafeRelaxedJsonEscaping}
-            File.WriteAllText(contentFile,"window.VSEBINA = " & data.ToJsonString(options) & ";" & Environment.NewLine,New System.Text.UTF8Encoding(False))
+            SeoExporter.Save(websiteFolder, data, "window.VSEBINA = " & data.ToJsonString(options) & ";" & Environment.NewLine)
             lastSaveSucceeded=True
-            BumpCacheVersion()
+            ' Cache versions are updated by SeoExporter.
             SetStatus("Vse spremembe so shranjene. Predogled se posodobi samodejno.",True)
         Catch ex As Exception : MessageBox.Show(ex.Message,"Napaka pri shranjevanju",MessageBoxButtons.OK,MessageBoxIcon.Error) : End Try
     End Sub

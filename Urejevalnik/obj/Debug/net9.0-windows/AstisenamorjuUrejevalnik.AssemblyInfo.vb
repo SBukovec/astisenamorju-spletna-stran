@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("AstisenamorjuUrejevalnik"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d04a662c251b0eb64685641aecdb5f3ca4cbb556"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9406ba9ec22b68e23fe8779846ec0e84deb5fff3"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("AstisenamorjuUrejevalnik"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("AstisenamorjuUrejevalnik"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

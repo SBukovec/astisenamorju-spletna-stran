@@ -39,6 +39,7 @@ wordmarkEl.style.marginTop = `${Number(v.imeGrafikaOdmikY) || 0}px`;
 document.getElementById('site-wordmark').hidden = showGrafika;
 
 const nav = document.getElementById('main-nav');
+nav.replaceChildren(); // seo-export
 for (let i = 1; i <= 9; i++) if (v[`menu${i}`]) {
   const a = document.createElement('a'); a.textContent = v[`menu${i}`]; a.href = v[`menu${i}Link`] || '#'; nav.appendChild(a);
 }
@@ -49,10 +50,12 @@ const video = document.getElementById('hero-video'); const source = document.get
 video.style.objectPosition = v.videoPozicija || 'center center';
 
 text('story-index',v.storyIndex); text('story-title',v.storyTitle); text('story-one',v.zgodba1); text('story-two',v.zgodba2); image('story-image',v.storySlika,v.storySlikaAlt); imageDisplay(document.getElementById('story-image'),v.storySlikaPozicija,v.storySlikaVelikost,v.storySlikaNacin);
-const lineup = document.getElementById('lineup'); [v.zasedba1,v.zasedba2,v.zasedba3,v.zasedba4].filter(Boolean).forEach(x => { const s=document.createElement('span'); s.textContent=x; lineup.appendChild(s); });
+const lineup = document.getElementById('lineup');
+lineup.replaceChildren(); // seo-export [v.zasedba1,v.zasedba2,v.zasedba3,v.zasedba4].filter(Boolean).forEach(x => { const s=document.createElement('span'); s.textContent=x; lineup.appendChild(s); });
 
 text('music-index',v.musicIndex); text('music-title',v.musicTitle); text('music-description',v.musicDescription); text('music-note',v.musicNote);
 const songs = document.getElementById('song-list');
+songs.replaceChildren(); // seo-export
 const songItems=Array.isArray(v.pesmi)?v.pesmi:[1,2].filter(i=>v[`skladba${i}`]).map(i=>({naslov:v[`skladba${i}`]||'',opis:v[`skladba${i}Opis`]||'',link:v[`skladba${i}Link`]||''}));
 songItems.forEach((song,i)=>{ const article=document.createElement('article'); article.className='song'; const url=song.link; article.innerHTML=`<span class="song-no">${String(i+1).padStart(2,'0')}</span><div><h3></h3><p></p></div><a class="play" aria-label="Odpri skladbo">▶</a>`; article.querySelector('h3').textContent=song.naslov||''; article.querySelector('p').textContent=song.opis||''; const a=article.querySelector('a');
 if(/\.mp3(?:[?#]|$)/i.test(url||'')){
@@ -104,6 +107,7 @@ Promise.all(galleryItems.map(item=>new Promise(resolve=>{const probe=new Image()
 
 text('video-index',v.videoIndex); text('video-title',v.videoTitle); text('video-description',v.videoDescription);
 const videoGrid=document.getElementById('video-grid');
+videoGrid.replaceChildren(); // seo-export
 (Array.isArray(v.videoteka)?v.videoteka:[]).forEach(item=>{
   if(String(item.aktiven||'').trim().toLowerCase()==='ne') return;
   const src=(item.video||'').trim(); if(!src) return;
@@ -133,7 +137,8 @@ const videoGrid=document.getElementById('video-grid');
 });
 
 text('contact-index',v.contactIndex); text('contact-title',v.contactTitle); text('contact-highlight',v.contactHighlight); text('contact-description',v.contactDescription); link('contact-email',v.kontakt,`mailto:${v.kontakt}`);
-const socials=document.getElementById('socials'); ['facebook','instagram','youtube'].forEach(k=>{if(v[`${k}Text`]){const a=document.createElement('a');a.textContent=v[`${k}Text`];a.href=v[`${k}Url`]||'#kontakt';if(!v[`${k}Url`])a.classList.add('disabled');socials.appendChild(a);}});
+const socials=document.getElementById('socials');
+socials.replaceChildren(); // seo-export ['facebook','instagram','youtube'].forEach(k=>{if(v[`${k}Text`]){const a=document.createElement('a');a.textContent=v[`${k}Text`];a.href=v[`${k}Url`]||'#kontakt';if(!v[`${k}Url`])a.classList.add('disabled');socials.appendChild(a);}});
 text('footer-left',v.footerLeft); text('footer-right',v.footerRight);
 
 const menuButton=document.querySelector('.menu-button'); menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));}); nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
